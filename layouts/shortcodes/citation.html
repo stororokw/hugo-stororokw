@@ -1,0 +1,35 @@
+{{ $index := 1}}
+{{ $page := .Page}}
+{{ $citations := $page.Store.Get "citations"}}
+
+<div class="citation-container">
+{{range $i, $id := $page.Store.Get "citationKeys"}}
+    {{ with $data := $page.Store.Get . }}
+    <div class="citation" id="{{ $id }}">
+        <span class="citation-label"> [{{ $index}}] </span>
+        <span class="citation-text">
+            {{ range $data.author}}
+                {{ .family}}
+                {{substr .given 0 1}}.
+            {{ end }}
+            {{ $issued := $data.issued }}
+            {{ $date_parts := (index $issued `date-parts`) }}
+            {{ range $date_parts}}
+                {{ $year := index . 0}}
+                {{ $month := index . 1}}
+                {{ $year }}
+                {{ $month }}
+            {{ end }}
+            {{ $data.title }}
+            {{ index $data `container-title` }} {{if $data.volume }} volume {{$data.volume}} {{ end }} {{if $data.page }} pages: {{ $data.page }} {{ end }}
+        </span>
+        <span class="citation-links">
+        {{ if $data.URL }}
+        <a href="{{$data.URL}}">{{$data.URL}}</a>
+        {{ end }}
+        </span>
+        {{$index = (add $index 1)}}
+        </div>
+    {{ end }} 
+{{ end }}
+</div>
