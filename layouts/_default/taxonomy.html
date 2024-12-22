@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="main">
+  <article>
+    <div class="article-container">
+      <h1>{{ .Title }}</h1>
+      {{ .Content }}
+      {{ range .Pages }}
+        <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+        {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+        {{ $dateHuman := .Date | time.Format ":date_long" }}
+      {{ end }}
+      </div>
+  </article>
+</div>
+{{ end }}

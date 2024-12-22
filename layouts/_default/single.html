@@ -1,10 +1,38 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+{{ $page := .Page}}
 
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+{{if (.Params.bibliography)}}
+  {{ with $page.Resources.Get .Params.bibliography}}
+    {{ $page.Store.Set "citations" (. | transform.Unmarshal)}}
+    {{ with . | transform.Unmarshal }}
+      {{ range $key, $data := .}}
+            {{ $page.Store.Set $data.id $data }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
 
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+<div class="main">
+  <div class="toc">
+    <div class="toc-container">
+      {{if (.Params.toc)}}
+        <h2>Contents</h2>
+        {{ .TableOfContents }}
+      {{ end }}
+    </div>
+  </div>
+  {{ $dateMachine := $.Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := $.Date | time.Format ":date_long" }}
+  <article>
+    <h1>{{ $.Title }}</h1>
+    {{ $.Content }}
+  </article>
+  <div class="side">
+    <div class="side-container">
+      {{if (.Params.side)}}
+      {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+      {{ end }}
+    </div>
+  </div>
+</div>
 {{ end }}
