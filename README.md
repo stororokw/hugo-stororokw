@@ -1,1 +1,7 @@
-# hugo-stororokw
+# Theme Name
+
+## Features
+
+## Installation
+
+## Configuration
