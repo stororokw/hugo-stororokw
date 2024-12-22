@@ -1,5 +1,53 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+
+{{ if .Param "math" }}
+    {{ partialCached "math.html" . }}
+{{ end }}
+
+{{- with resources.Get "css/syntax-light.css" }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+{{- end }}
+
+{{- with resources.Get "css/syntax-dark.css" }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+{{- end }}
+
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
+
+{{- with resources.Get "js/toggle-theme.js" }}
+    {{- with . | js.Build }}
+    <script type="text/javascript" src="{{ .RelPermalink }}"></script>
+{{- end }}
+{{- end }}
+
+{{ range .Params.scripts}}
+  {{ $script := resources.Get .}}
+    {{- with $script }}
+        {{- with . | js.Build }}
+        <script type="module" src="{{ .RelPermalink }}" defer></script>
+    {{- end }}
+    {{- end }}
+{{- end}}
+
+{{ range .Params.scripts}}
+  {{ $script := page.Resources.Get .}}
+    {{- with $script }}
+        {{- with . }}
+        <script type="module" src="{{ .RelPermalink }}" defer></script>
+    {{- end }}
+    {{- end }}
+{{- end}}
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2
+?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900
+&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900
+&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+{{ template "_internal/google_analytics.html" . }}

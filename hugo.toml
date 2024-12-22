@@ -1,11 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://stororokw.github.io/'
 languageCode = 'en-US'
-title = 'My New Hugo Site'
-
-[[menus.main]]
-name = 'Home'
-pageRef = '/'
-weight = 10
+title = 'stororokw'
 
 [[menus.main]]
 name = 'Posts'
@@ -13,9 +8,14 @@ pageRef = '/posts'
 weight = 20
 
 [[menus.main]]
-name = 'Tags'
-pageRef = '/tags'
+name = 'Projects'
+pageRef = '/projects'
 weight = 30
+
+# [[menus.main]]
+# name = 'Tags'
+# pageRef = '/tags'
+# weight = 30
 
 [module]
   [module.hugoVersion]

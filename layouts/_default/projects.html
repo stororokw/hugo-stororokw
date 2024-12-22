@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="main">
+  <article>
+    {{ .Content }}
+    <div class="article-container">
+      <h1>{{ .Title }}</h1>
+      <div class="project-card-container">
+      {{ range .Pages }}
+        {{$imageSource := .Params.header.image}}
+        <a href="{{ .RelPermalink }}">
+          <div class="project-card">
+            <img src="{{ $imageSource }}" alt="test"/>
+            <div class="project-card-inner">
+              <h2>{{ .LinkTitle }}</h2>
+              <p>{{ .Params.header.description }}</p>
+            </div>
+          </div>
+        </a>
+      {{ end }}
+      </div>
+    </div>
+  </article>
+</div>
+{{ end }}
