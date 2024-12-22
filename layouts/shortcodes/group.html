@@ -1,0 +1,7 @@
+{{$direction := .Get "direction"}}
+{{$width := .Get "width"}}
+{{$alignment := .Get "alignment"}}
+
+<div style="display:flex; flex-direction: {{ $direction }}; width: {{ $width }}; align-self: {{ $alignment}}; box-sizing: border-box; padding:4px;">
+    {{.Inner}}
+</div>

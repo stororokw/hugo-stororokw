@@ -1,0 +1,13 @@
+{{- $label := .Get "label"}}
+{{- $id := .Get "id" }}
+{{- $min := .Get "min"}}
+{{- $max := .Get "max"}}
+{{- $defaultValue := .Get "defaultValue"}}
+{{- $unit := .Get "unit"}}
+{{- $step := .Get "step"}}
+
+<div class = "slider-container">
+    <input type="range" id="{{ $id }}" min="{{ $min }}" max="{{ $max }}" value="{{ $defaultValue }}" step="{{ $step }}" aria-label="select pen size">
+    <span class="{{ $id }}">{{ $defaultValue }}{{ $unit }}</span>
+</div>
+  <label for="{{ $id }}">{{ $label }}</label>
