@@ -1528,6 +1528,12 @@ kbd
     font-size: 1rem;
 }
 
+.footer-container p
+{
+    font-family: monospace;
+    font-size: 1rem;
+}
+
 @media screen and (max-width: 1216px)
 {
     .main
@@ -1730,6 +1736,11 @@ kbd
         line-height: 1.5;
     }
 
+    .footer-container p
+    {
+      font-size: 1rem;
+    }    
+
     .chroma span
     {
         font-size: 0.8rem;
@@ -1842,6 +1853,11 @@ kbd
         font-size: 0.9rem;
     }
 
+    .footer-container p
+    {
+      font-size: 0.8rem;
+    }    
+
     .citation-text, .citation-links, .citation-label
     {
         font-size: 0.8rem;
@@ -1861,12 +1877,6 @@ kbd
 .expand
 {
     display: block;
-}
-
-.footer-container p
-{
-    font-family: monospace;
-    font-size: 1rem;
 }
 
 [color-scheme="dark"]
