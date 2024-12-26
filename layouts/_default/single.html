@@ -1,6 +1,8 @@
 {{ define "main" }}
 {{ $page := .Page}}
 
+{{ $page.Store.Set "figureIndex" 1 }}
+
 {{if (.Params.bibliography)}}
   {{ with $page.Resources.Get .Params.bibliography}}
     {{ $page.Store.Set "citations" (. | transform.Unmarshal)}}
