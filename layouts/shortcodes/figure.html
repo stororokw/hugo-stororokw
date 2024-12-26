@@ -1,0 +1,44 @@
+{{$src := (.Get "src") }}
+{{$spec := (.Get "spec")}}
+{{$caption := (.Get "caption" | .Page.RenderString)}}
+{{$width := (.Get "width")}}
+{{$height := (.Get "height")}}
+{{$index := .Page.Store.Get "figureIndex" }}
+{{$align := (.Get "align")}}
+{{$loading := (.Get "loading")}}
+{{$attr := (.Get "attr")}}
+{{$attrlink := (.Get "attrlink")}}
+
+{{ .Page.Store.Add "figureIndex" 1}}
+
+<figure>
+  {{- with $src }}
+    {{- with $i := $.Page.Resources.Get . }}
+      <img {{- with $align }} class="{{$align}}" {{- end }}
+      src="{{ .RelPermalink }}"
+      width="{{ $width }}"
+      height="{{ $height }}"
+      {{- with $loading }} loading="{{ . }}"{{- end }}
+      alt="">
+      {{- else }}
+      {{- errorf "The %q shortcode was unable to find %q. See %s" $.Name . $.Position }}
+    {{- end }}
+  {{- end }}
+  {{- with $.Inner }}
+  {{ . }}
+  {{- end }}
+  <figcaption {{- with $align }} class="{{$align}}" {{- end }}>
+  <small>
+      Figure {{$index}}. {{ $caption }} 
+  </small>
+  <div>
+    <small>
+      {{ with $attrlink }}
+        <a href="{{ . }}">
+      {{- end -}}
+      {{ $attr | .Page.RenderString }}
+      {{if $attrlink }}</a>{{ end }}    
+    </small>
+  </div>
+  </figcaption>
+</figure>
