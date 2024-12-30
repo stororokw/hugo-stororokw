@@ -602,12 +602,12 @@ img
     /* margin: 0 auto; */
     margin-left:auto;
     margin-right: auto;
-    display: flex;
-    flex-direction: column;
     max-width: 512px;
     width:100%;
     box-sizing: border-box;
     margin-top:8px;
+    height: fit-content;
+    overflow:auto;
     /* padding:8px; */
 }
 
@@ -675,6 +675,55 @@ input[type="color"]
     font-family: 'Segoe UI', Consolas, monospace;
     font-style: normal; font-variant: normal;;
 }
+
+.checkbox-container
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-family: 'Segoe UI', Consolas, monospace;
+    font-style: normal; font-variant: normal;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.toolbar input[type="checkbox"]
+{
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #1d2f49;
+}
+
+.toolbar input[type="checkbox"]:hover
+{
+    background-color: #23456d;
+    cursor: pointer;
+}
+
+.toolbar input[type="checkbox"]:checked::before
+{
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.toolbar input[type="checkbox"]:checked::before
+{
+    font-family: Consolas, monospace;
+    font-style: normal; font-variant: normal;
+    content:'✔';
+    font-size: 16px;
+    color: #4296fa;
+}
+
 
 .toolbar-container label
 {
@@ -877,7 +926,7 @@ input[type="radio"]:checked
     display: flex;
     flex-direction: column;
     max-width: 512px;
-    width:100%;
+    /* width:100%; */
     box-sizing: border-box;
     margin-top:8px;
     /* padding:8px; */
@@ -1902,6 +1951,7 @@ figure {
     margin: auto;
     color:black; 
     margin: 8px 0;
+    margin: 8px;
     padding-top: 4px;
     background-color: var(--figure-background-color);
   }
@@ -1915,6 +1965,15 @@ figcaption {
     text-align: center;
     width:100%;
   }
+
+figcaption a
+{
+    font-size: 0.75rem;
+    padding:0;
+    margin:0;
+    width: 100%;
+    word-break: break-all;
+}
 
 .center
 {
@@ -1941,4 +2000,23 @@ figcaption {
     height: auto;
     margin-left: auto;
     margin-right: 0;
+}
+
+.float-left
+{
+    float: left;
+    overflow: auto;
+}
+
+.float-right
+{
+    float: right;
+    overflow: auto;
+
+}
+
+.float-inline-start
+{
+    float: inline-start;
+    overflow: auto;
 }

@@ -8,10 +8,11 @@
 {{$loading := (.Get "loading")}}
 {{$attr := (.Get "attr")}}
 {{$attrlink := (.Get "attrlink")}}
+{{$float := (.Get "float")}}
 
 {{ .Page.Store.Add "figureIndex" 1}}
 
-<figure>
+<figure {{- with $float }} class="float-{{$float}}" {{- end}}>
   {{- with $src }}
     {{- with $i := $.Page.Resources.Get . }}
       <img {{- with $align }} class="{{$align}}" {{- end }}
