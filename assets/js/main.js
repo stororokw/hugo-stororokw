@@ -163,8 +163,6 @@ function setActiveSection()
         // display when heading is visible
         // check if the current offset is out of the screen first
         let start = Math.abs(rect.top);
-        if(index == 0)
-        console.log(window.scrollY);
         if(start < window.scrollY)
         {
             offset = Math.abs(window.scrollY + rect.top) - Math.abs(window.innerHeight );
