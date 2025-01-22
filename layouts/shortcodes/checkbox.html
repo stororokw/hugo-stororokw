@@ -2,8 +2,9 @@
 {{$name := (.Get "name")}}
 {{$value := (.Get "value")}}
 {{$label := (.Get "label")}}
+{{$checked := (.Get "checked")}}
 
 <div class="checkbox-container">
-<input type = "checkbox" id= "{{ $id }}" name = "{{ $name }}" value = "{{ $value }}">
+<input type = "checkbox" id= "{{ $id }}" name = "{{ $name }}" value = "{{ $value }}" {{if $checked }} checked {{ end}}>
 <label for = "{{ $id }}">{{ $label }}</label>
 </div>

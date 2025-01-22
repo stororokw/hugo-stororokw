@@ -1,0 +1,11 @@
+{{- $class := .Get "class"}}
+{{- $title := .Get "title"}}
+{{ $optBlock := dict "display" "inline" }}
+{{ $optOrg := dict "markup" "org" }}
+
+<details class="{{$class}}">
+    {{- if $title -}}<summary>{{- $title -}}</summary> {{- end -}}
+    <div class="details-content-wrapper">
+        {{ .Inner }}
+    </div>
+</details>

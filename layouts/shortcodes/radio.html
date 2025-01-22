@@ -2,6 +2,7 @@
 {{$name := (.Get "name")}}
 {{$value := (.Get "value")}}
 {{$label := (.Get "label")}}
+{{$checked := (.Get "checked")}}
 
-<input type = "radio" id= "{{ $id }}" name = "{{ $name }}" value = "{{ $value }}">
+<input type = "radio" id= "{{ $id }}" name = "{{ $name }}" value = "{{ $value }}" {{if eq $checked "true"}} checked {{end}}>
 <label for = "{{ $id }}">{{ $label }}</label>

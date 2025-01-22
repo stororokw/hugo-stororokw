@@ -65,12 +65,12 @@ h3
 
 h4
 {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-style: normal;
-    margin-block-start: 0.5em;
-    margin-block-end: 0.5em;
+    margin-block-start: 0.75em;
+    margin-block-end: 0.75em;
 }
 
 p, li
@@ -86,6 +86,11 @@ p, li
     font-style: normal;
     margin-block-start: 0.5em;
     margin-block-end: 0.5em;
+}
+
+li
+{
+    line-height: normal;
 }
 
 h1, h2, h3, h4, h5, h6, p, label, time, li, ul
@@ -454,6 +459,7 @@ a
     display: block;
     padding: 4px;
     box-sizing: border-box;
+    text-align: left;
 }
 
 .toc a:hover
@@ -488,6 +494,9 @@ a
     overflow-y: auto;
     overflow-x: hidden;
     /* height: calc(100vh - (3rem + 2rem + 24px)); */
+    height: calc(100vh - var(--breadcrumb-bar-height) - var(--navigation-bar-height));
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 .toc ul
@@ -524,6 +533,11 @@ a
 .toc-container h2, .side h2
 {
     margin-top: 0px;
+}
+
+.toc ::-webkit-scrollbar
+{
+    display: none;
 }
 
 .side
@@ -996,6 +1010,11 @@ canvas
 }
 
 
+article
+{
+    padding: 8px;
+}
+
 [color-scheme="dark"]
 {
     --background-color: #2b2b2b;
@@ -1014,6 +1033,14 @@ canvas
 
     --figure-background-color: #292929;
     --figure-border-color: #202020;
+
+    --scrollbar-color: #3b3b3b;
+    --scrollbar-track-color: #505050;
+    --scrollbar-thumb-color: #909090;
+    --scrollbar-thumb-hover-color: #bbbbbb;
+
+    --table-header-color: #2C8EEC;
+    --table-hover-color: #2c8fecbd;
 
     #theme-switch-button
     {
@@ -1048,6 +1075,14 @@ canvas
 
     --figure-background-color: #cccc;
     --figure-border-color: #c0c0c0;
+
+    --scrollbar-color: #3b3b3b;
+    --scrollbar-track-color: #505050;
+    --scrollbar-thumb-color: #909090;
+    --scrollbar-thumb-hover-color: #bbbbbb;
+
+    --table-header-color: #2C8EEC;
+    --table-hover-color: #2c8fecbd;
 
 }
 
@@ -1749,10 +1784,9 @@ kbd
         font-size: 1.5rem;
     }
 
-    p, label, span, li
+    p, label, li
     {
         font-size: 1.2rem;
-        line-height: 1.5;
     }
 
     .citation-text, .citation-links, .citation-label
@@ -1817,10 +1851,9 @@ kbd
 
 @media screen and (max-width: 475px)
 {
-    p, label, span
+    p, label
     {
         font-size: 1rem;
-        line-height: 1.5;
     }
 
     .footer-container p
@@ -1935,7 +1968,7 @@ kbd
         align-content: center;
     }
 
-    p, span, li
+    p, li
     {
         font-size: 0.9rem;
     }
@@ -2051,4 +2084,116 @@ figcaption a
 {
     float: inline-start;
     overflow: auto;
+}
+
+details {
+font:
+    1rem "Open Sans",
+    Calibri,
+    sans-serif;
+    width:100%;
+    color: var(--font-color);
+    /* background-color: #616161; */
+    /* box-shadow: 2px 2px 8px black; */
+    background-color: var(--figure-background-color);
+    border: 1px solid var(--figure-border-color);
+    border-radius: 5px;
+}
+
+.details-content-wrapper > p
+{
+font:
+1rem "Open Sans",
+    Calibri,
+    sans-serif;
+}
+
+details > summary
+{
+    font:
+    18px "Open Sans",
+    Calibri,
+    sans-serif;
+    padding: 2px 6px;
+    width: 15em;
+    background-color: #4e4e4e;
+    background-color: #1f87db;
+    border: none;
+    /* box-shadow: 3px 3px 4px black; */
+    cursor: pointer;
+    width:100%;
+    border-radius: 5px;
+}
+
+details .details-content-wrapper
+{
+    padding: 16px;
+}
+
+details[open] summary
+{
+    border-radius: 5px 5px 0 0;
+}
+
+details > summary:hover
+{
+    background-color: #4aa5f0;
+}
+
+details > #details-content
+{
+    background-color: red;
+}
+
+details > p
+{
+    font:
+    16px "Open Sans",
+    Calibri,
+    sans-serif;
+    /* border-radius: 0 0 10px 10px; */
+    /* background-color: #4b4b4b; */
+    padding: 2px 6px;
+    margin: 0;
+    /* box-shadow: 3px 3px 4px black; */
+}
+
+details[open] > summary {
+    background-color: rgb(151, 151, 151);
+    background-color: #4aa5f0;
+}
+
+.width-100
+{
+    width:100%;
+}
+
+table 
+{
+    table-layout: auto;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--figure-border-color);
+}
+
+td, th
+{
+    border: 1px solid var(--figure-border-color);
+    padding: 8px;
+    color: var(--font-color);
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+th
+{
+    padding-top: 16px;
+    padding-bottom: 16px;  background-color: var(--table-header-color);
+    letter-spacing: 1px;
+}
+
+tr:hover
+{
+    background-color: var(--table-hover-color);
 }

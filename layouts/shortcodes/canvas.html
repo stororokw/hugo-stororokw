@@ -1,4 +1,6 @@
 {{- $class := .Get "class"}}
 {{- $tabindex := .Get "tabindex"}}
+{{- $width := .Get "width" | default "512" }}
+{{- $height := .Get "height" | default "512" }}
 
-<canvas class = "{{$class}}" tabindex = "{{ $tabindex }}" width = "512" height = "512" oncontextmenu = "return false;"></canvas>
+<canvas class = "{{$class}}" tabindex = "{{ $tabindex }}" width = "{{ $width }}" height = "{{ $height }}" oncontextmenu = "return false;"></canvas>
