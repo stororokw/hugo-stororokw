@@ -100,7 +100,8 @@ h1, h2, h3, h4, h5, h6, p, label, time, li, ul
 
 ul
 {
-    padding:16px;
+    padding-left: 32px;
+    padding-right: 16px;
 }
 
 a
@@ -1851,7 +1852,7 @@ kbd
 
 @media screen and (max-width: 475px)
 {
-    p, label
+    p, label, li
     {
         font-size: 1rem;
     }
