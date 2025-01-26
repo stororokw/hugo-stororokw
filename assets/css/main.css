@@ -1447,7 +1447,7 @@ code
     display:block;
     padding: 0;
     margin:0;
-    white-space: pre-line;
+    white-space: break-spaces;
     overflow-wrap: anywhere; 
     width:100%;
 
