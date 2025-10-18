@@ -1,0 +1,25 @@
+{{- $label := .Get "label"}}
+{{- $id := .Get "id" }}
+{{- $min := .Get "min"}}
+{{- $max := .Get "max"}}
+{{- $defaultValue0 := .Get "defaultValue0"}}
+{{- $defaultValue1 := .Get "defaultValue1"}}
+{{- $defaultValue2 := .Get "defaultValue2"}}
+{{- $unit := .Get "unit"}}
+{{- $step := .Get "step"}}
+
+<div class = "slider-container">
+    <div class = "slider-container">
+        <input type="range" id="{{ $id }}0" min="{{ $min }}" max="{{ $max }}" value="{{ $defaultValue0 }}" step="{{ $step }}" aria-label="select pen size">
+        <span class="{{ $id }}0">{{ $defaultValue0 }}{{ $unit }}</span>
+    </div>
+    <div class = "slider-container">
+        <input type="range" id="{{ $id }}1" min="{{ $min }}" max="{{ $max }}" value="{{ $defaultValue1 }}" step="{{ $step }}" aria-label="select pen size">
+        <span class="{{ $id }}1">{{ $defaultValue1 }}{{ $unit }}</span>
+    </div>
+    <div class = "slider-container">
+        <input type="range" id="{{ $id }}2" min="{{ $min }}" max="{{ $max }}" value="{{ $defaultValue2 }}" step="{{ $step }}" aria-label="select pen size">
+        <span class="{{ $id }}2">{{ $defaultValue2 }}{{ $unit }}</span>
+    </div>
+</div>
+<label for="{{ $id }}">{{ $label }}</label>
