@@ -14,6 +14,17 @@ function SetGalleryEventListeners()
                 {
                     suffix = selector.getAttribute("data-src");
                 }
+
+                for(const source of sources)
+                {
+                    if(source.checked)
+                    {
+                        src = source.getAttribute("data-src");
+                    }
+                }
+                const img = picture.querySelector("img");
+                img.setAttribute("src", src + suffix +".png");
+
                 selector.addEventListener("click", () =>
                 {
                     if(selector.checked)
