@@ -2020,7 +2020,7 @@ figure {
     margin: auto;
     color:black; 
     margin: 8px 0;
-    margin: 8px;
+    /* margin: 8px; */
     padding-top: 4px;
     background-color: var(--figure-background-color);
   }
@@ -2200,4 +2200,98 @@ th
 tr:hover
 {
     background-color: var(--table-hover-color);
+}
+
+.gallery
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width:100%;
+}
+
+.gallery-container
+{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: start;
+}
+
+.gallery img
+{
+    border:1px solid #f2f2f23a;
+}
+
+.gallery-buttons
+{
+    display:flex;
+}
+
+.gallery button:hover
+{
+	background-color:#22579c;
+}
+.gallery button:active
+{
+	position:relative;
+	top:1px;
+}
+
+.gallery-selector
+{
+    display:flex;
+}
+
+.gallery input[type="radio"]
+{
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+}
+
+.gallery label
+{
+  	background-color:#2C8EEC;
+	/* border: 1px solid #267ac9; */
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:16px;
+	padding: 6px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+    margin: 0px;
+}
+
+.gallery input[type="radio"]:checked + label
+{
+  	background-color:#1a558d;
+    color: white;
+    border-color: #2196F3;
+}
+
+.gallery input[type="radio"]:hover + label
+{
+  	background-color:#48a7ff;
+}
+
+.gallery input[type="radio"]:active + label
+{
+  	background-color:black;
+}
+
+.gallery input[type="radio"]:active + label
+{
+  	background-color:black;
+}
+
+.gallery input[type="radio"] + label
+{
+    -webkit-user-select: none;
+    user-select: none;
 }

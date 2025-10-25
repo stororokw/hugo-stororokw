@@ -1,0 +1,20 @@
+{{$src := (.Get "src") }}
+{{$width := (.Get "width")}}
+{{$height := (.Get "height")}}
+{{$align := (.Get "align")}}
+{{$loading := (.Get "loading")}}
+
+<div class="gallery" style="width:{{$width}}">
+    <div class="gallery-container">
+        <div>
+            {{.Inner}}
+        </div>
+        {{- with $src }}
+                <img {{- with $align }} class="{{$align}}" {{- end }}
+                src="{{$src}}"
+                height="{{ $height }}"
+                {{- with $loading }} loading="{{ . }}"{{- end }}
+                alt="">
+        {{- end}}
+    </div>
+</div>

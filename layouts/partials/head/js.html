@@ -3,3 +3,9 @@
       <script src="{{ .RelPermalink }}" defer></script>
     {{- end }}
 {{- end }}
+
+{{- with resources.Get "js/gallery.js" }}
+    {{- with . }}
+      <script src="{{ .RelPermalink }}" defer></script>
+    {{- end }}
+{{- end }}

@@ -1,0 +1,8 @@
+{{$label := .Get "label"}}
+{{$id := .Get "id"}}
+{{$checked := .Get "checked"}}
+{{$name := .Get "name"}}
+{{$src := .Get "src"}}
+
+<input type="radio" id="{{$id}}" name="{{$name}}" data-src="{{$src}}" {{- with $checked }} checked {{- end}}>
+<label for={{$id}}>{{$label}}</label>
